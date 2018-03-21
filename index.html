@@ -6,175 +6,287 @@
 <head>
 
     <link rel="stylesheet" type="text/css" href="style.css">
-<script src="libraries/p5.js"></script>
-<script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
-<script src="libraries/p5.sound.js"></script>
+    <!--    <script src="libraries/p5.js"></script>-->
+    <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+    <script src="libraries/p5.sound.js"></script>
     <script src="main.js"></script>
     <script src="parents.js"></script>
     <script src="kids.js"></script>
-    
+
 
 </head>
 
 <body>
+
     <header>
         <h1>Rotten kid theorem Simulator</h1>
-        <h2>Based on Gary.S.Baker's ecnomical and sociological research <br><em><a href="http://www.journals.uchicago.edu/doi/abs/10.1086/260265">'A Theory of Social Interactions'</a></em></h2>
+
+        <!--        <h2>Based on Gary.S.Baker's ecnomical and sociological research <br><em><a href="http://www.journals.uchicago.edu/doi/abs/10.1086/260265">'A Theory of Social Interactions'</a></em></h2>-->
+
     </header>
-    
+
+    <!--Navigation Bar-->
+    <!--I forgot why I didn't use the <nav> tags...-->
     <div>
-    <ul id="navigation">
-        <li class="nav"><a href="index.html#about">About</a></li>
-        <li class="nav"><a href="index.html#simulator">Simulator</a></li>
-        <li class="nav"><a href="index.html#reference">Reference</a></li>
+        <ul id="navigation">
+            <li class="nav"><a href="#about">About</a></li>
+            <li class="nav"><a href="#simulator">Simulator</a></li>
+            <li class="nav"><a href="#reference">Reference</a></li>
         </ul>
     </div>
-    
-    <section id="about">
-        <p><strong>Rules</strong>
-            <br></p>
-        <p>This reaserch focuses on how family ecnomic affects family members' interaction.
-            <br>Dr.Baker used a lot of assumptions and limitations on the framework in the original paper. Such as:
-            <br>The head of family who decides how to distribute the money is an altruist, which means a redistribution of income among members does not affect the consumption or welfare of any member.
-            <br>And so on...
-        </p>
-        <p>
-            The conclusion is a lit tricky... it suggests that the result of distributing the estate among offsprings is something hard to know beforehand.
-            <br>If an selfish egoist doesn't commit harm to his/her siblings, that's because he/she takes the related consequence as a kind of 'social income'.
-            <br>The more he/she hurts his/her siblings ecnomically, the more the altruistic parent needs to make up the hurted child, which declines the life quality of the whole family(and the egoist's reputation)!</p>
-        <p>
-            <br>My personal understanding of this model is a demonstration of instability.
-            <br>Until now, I've already finished most functions of the model roughly. I changed the original complicated mathmatical formulas into simple probalblity.
-        </p>
 
-        <p><strong><div style="color:red">Instructions!</div></strong>
-            <strong>Please click buttons in the order from left up to down and then to the right.</strong>
-        <br>After Pay, it's Check. Then you might see something happen, if not, please click and go to see the next week.
-        <br>Becasue everything happens based on probalblity, I cannot ensure anything!
-        </p>
 
-    </section>
-    <main id="simulator">
-        <table>
-            <tr>
-                <th class="parents">Parents</th>
-                <th class="good">Good kid</th>
-                <th class="rotten">Rotten Kid</th>
-            </tr>
-            <tr>
-                <!--Parents income-->
-                <td class="parents">Weekly Income:
-                    <div class="num" id="weeklyIncome">$200<sup> (1)</sup></div>
-                </td>
-                <!--Good kid income-->
-                <td class="good">Weekly allowance:
-                    <div class="num" id="weeklyGoodA"> </div>
-                </td>
-                <!--Rotten kid income-->
-                <td class="rotten">Weekly allowance:
-                    <div class="num" id="weeklyRottenA"> </div>
-                </td>
-            </tr>
-            <tr>
-                <!--Parents expenditure-->
-                <td class="parents">Behaviour:<br>
-                    <ul>
-                        <li>Housing
-                            <div class="num">$46</div><button id="payHousingbutton" onclick="p1.payHousing();">Pay</button></li>
+    <article>
 
-                        <li>Food
-                            <div class="num">$60</div><button id="payFoodbutton" onclick="p1.payFood();">Pay</button></li>
+        <section id="subheading">
+            This project is created based on Gary.S.Baker's ecnomical and sociological research <br><em><a href="http://www.journals.uchicago.edu/doi/abs/10.1086/260265">'A Theory of Social Interactions'</a></em>
+        </section>
 
-                        <li>Transportation
-                            <div class="num">$48</div><button id="payTransportationbutton" onclick="p1.payTransportation();">Pay</button></li>
+        <section id="about">
 
-                        <li>Healthcare
-                            <div class="num">$10</div><button id="payHealthcarebutton" onclick="p1.payHealthcare();">Pay</button></li>
 
-                        <li>Clothing
-                            <div class="num">$16</div><button id="payClothingbutton" onclick="p1.payClothing();">Pay</button></li>
+            <p><strong>Rules</strong>
+                <br></p>
+            <p>This reaserch focuses on how family ecnomic affects family members' interaction.
+                <br>Dr.Baker used a lot of assumptions and limitations on the framework in the original paper. Such as:
+                <br>The head of family who decides how to distribute the money is an altruist, which means a redistribution of income among members does not affect the consumption or welfare of any member.
+                <br>And so on...
+            </p>
+            <p>
+                The conclusion is a lit tricky... it suggests that the result of distributing the estate among offsprings is something hard to know beforehand.
+                <br>If an selfish egoist doesn't commit harm to his/her siblings, that's because he/she takes the related consequence as a kind of 'social income'.
+                <br>The more he/she hurts his/her siblings ecnomically, the more the altruistic parent needs to make up the hurted child, which declines the life quality of the whole family(and the egoist's reputation)!</p>
+            <p>
+                <br>My personal understanding of this model is a demonstration of instability.
+                <br>Until now, I've already finished most functions of the model roughly. I changed the original complicated mathmatical formulas into simple probalblity.
+            </p>
 
-                        <li>Other
-                            <ul>
-                                <li>Entertainment
-                                    <button onclick="p1.plusEntertainment();">+</button>
-                                    <div class="num" id="entertainment">$10</div>
-                                    <button onclick="p1.minusEntertainment();">-</button></li>
-                                <li>Allowance
-                                    <ul>
-                                        <li>For good kid:<button onclick="p1.plusGood();">+</button>
-                                            <div class="num" id="costForgood">$5</div><button onclick="p1.minusGood();">-</button>
-                                        </li>
-                                        <li>For bad kid:<button onclick="p1.plusRotten();">+</button>
-                                            <div class="num" id="costForrotten">$5</div><button onclick="p1.minusRotten();">-</button></li>
-                                    </ul>
-                                </li>
-                            </ul><button id="payOtherbutton" onclick="p1.payOther();">Pay</button></li>
-                    </ul>
-                </td>
+            <p><strong><div>Instructions!</div></strong>
+                <strong>Please click buttons in the order from left up to down and then to the right.</strong>
+                <br>After Pay, it's Check. Then you might see something happen, if not, please click and go to see the next week.
+                <br>Becasue everything happens based on probalblity, I cannot ensure anything!
+            </p>
 
-                <!--Good Kid expenditure-->
-                <td class="good">Behaviour:<br>
-                    <ul>
-                        <li>Snack
-                            <div class="num">$2</div>
-                        </li>
-                        <li>Toy
-                            <div class="num">$3</div>
-                        </li>
-                        <li>Comic
-                            <div class="num">$5</div>
-                        </li>
-                    </ul>
-                    <div id="noteGood"></div><div id="noteGood2"></div>
-                </td>
+        </section>
 
-                <!--Rotten Kid expenditure-->
-                <td class="rotten">Behaviour:<br>
-                    <ul>
-                        <li>Snack
-                            <div class="num">$2</div>
-                        </li>
-                        <li>Toy
-                            <div class="num">$3</div>
-                        </li>
-                        <br>
-                        <li>Snatch<sup> (2)</sup>
-                            <div class="num"></div>
-                        </li>
-                        <li>Bike
-                            <div class="num">$10</div>
-                        </li>
-                    </ul>
-                    <div id="noteRotten"></div><div id="noteRotten2"></div>
-                </td>
-            </tr>
-            <tr>
-                <!--Parents balance-->
-                <td class="parents">Balance :
-                    <div class="num" id="parentsBalance"></div><button id="pcheckbutton" onclick="p1.check();">Check</button>
-                </td>
-                <!--Good kid balance-->
-                <td class="good">Balance :
-                    <div class="num" id="goodBalance"></div><button id="goodcheckbutton" onclick="good1.check();">Check</button>
-                </td>
-                <!--Rotten kid balance-->
-                <td class="rotten">Balance :
-                    <div class="num" id="rottenBalance"></div><button id="rottencheckbutton" onclick="rotten1.check();">Check</button>
-                </td>
-            </tr>
-        </table>
-        
-<!--
+        <main id="simulator">
+
+            <!--New Table -->
+            <fieldset> 
+                <legend>Simulator</legend>
+
+                <table>
+                    <!--Identity Row -->
+                    <tr class="odd">
+                        <th></th>
+                        <th>Parents</th>
+                        <th>Good Kid</th>
+                        <th>Rotten Kid</th>
+                    </tr>
+                    
+                    <!--Weekly income Row -->
+                    <tr class="even">
+                        <td style="width:50px">Weekly Income/Allowance:</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    
+                    <!--Behavior Row (10rows for parents' behavior)-->
+                    <tr class="odd">
+                        <td rowspan="10">Behavior</td>
+                        <td>Housing</td>
+                        <td>Snack</td>
+                        <td>Snack</td>
+                    </tr>
+
+                    <tr class="even">
+                        <td>Food</td>
+                        <td>Toy</td>
+                        <td>Toy</td>
+                    </tr>
+
+                    <tr class="odd">
+                        <td>Transportation</td>
+                        <td>Comic</td>
+                        <td>Snatch</td>
+                    </tr>
+
+                    <tr class="even">
+                        <td>Healthcare</td>
+                        <td></td>
+                        <td>Bike</td>
+                    </tr>
+
+                    <tr class="odd">
+                        <td>Clothing</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="even">
+                        <td>Other</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="odd">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="even">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="odd">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="even">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
+
+
+                </table>
+            </fieldset>
+
+            <hr>
+
+            <!--Original Table-->
+            <table>
+                <tr>
+                    <th class="parents">Parents</th>
+                    <th class="good">Good kid</th>
+                    <th class="rotten">Rotten Kid</th>
+                </tr>
+                <tr>
+                    <!--Parents income-->
+                    <td class="parents">Weekly Income:
+                        <div class="num" id="weeklyIncome">$200<sup> (1)</sup></div>
+                    </td>
+                    <!--Good kid income-->
+                    <td class="good">Weekly allowance:
+                        <div class="num" id="weeklyGoodA"> </div>
+                    </td>
+                    <!--Rotten kid income-->
+                    <td class="rotten">Weekly allowance:
+                        <div class="num" id="weeklyRottenA"> </div>
+                    </td>
+                </tr>
+                <tr>
+                    <!--Parents expenditure-->
+                    <td class="parents">Behaviour:<br>
+                        <ul>
+                            <li>Housing
+                                <div class="num">$46</div><button id="payHousingbutton" onclick="p1.payHousing();">Pay</button></li>
+
+                            <li>Food
+                                <div class="num">$60</div><button id="payFoodbutton" onclick="p1.payFood();">Pay</button></li>
+
+                            <li>Transportation
+                                <div class="num">$48</div><button id="payTransportationbutton" onclick="p1.payTransportation();">Pay</button></li>
+
+                            <li>Healthcare
+                                <div class="num">$10</div><button id="payHealthcarebutton" onclick="p1.payHealthcare();">Pay</button></li>
+
+                            <li>Clothing
+                                <div class="num">$16</div><button id="payClothingbutton" onclick="p1.payClothing();">Pay</button></li>
+
+                            <li>Other
+                                <ul>
+                                    <li>Entertainment
+                                        <button onclick="p1.plusEntertainment();">+</button>
+                                        <div class="num" id="entertainment">$10</div>
+                                        <button onclick="p1.minusEntertainment();">-</button></li>
+                                    <li>Allowance
+                                        <ul>
+                                            <li>For good kid:<button onclick="p1.plusGood();">+</button>
+                                                <div class="num" id="costForgood">$5</div><button onclick="p1.minusGood();">-</button>
+                                            </li>
+                                            <li>For bad kid:<button onclick="p1.plusRotten();">+</button>
+                                                <div class="num" id="costForrotten">$5</div><button onclick="p1.minusRotten();">-</button></li>
+                                        </ul>
+                                    </li>
+                                </ul><button id="payOtherbutton" onclick="p1.payOther();">Pay</button></li>
+                        </ul>
+                    </td>
+
+                    <!--Good Kid expenditure-->
+                    <td class="good">Behaviour:<br>
+                        <ul>
+                            <li>Snack
+                                <div class="num">$2</div>
+                            </li>
+                            <li>Toy
+                                <div class="num">$3</div>
+                            </li>
+                            <li>Comic
+                                <div class="num">$5</div>
+                            </li>
+                        </ul>
+                        <div id="noteGood"></div>
+                        <div id="noteGood2"></div>
+                    </td>
+
+                    <!--Rotten Kid expenditure-->
+                    <td class="rotten">Behaviour:<br>
+                        <ul>
+                            <li>Snack
+                                <div class="num">$2</div>
+                            </li>
+                            <li>Toy
+                                <div class="num">$3</div>
+                            </li>
+                            <br>
+                            <li>Snatch<sup> (2)</sup>
+                                <div class="num"></div>
+                            </li>
+                            <li>Bike
+                                <div class="num">$10</div>
+                            </li>
+                        </ul>
+                        <div id="noteRotten"></div>
+                        <div id="noteRotten2"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <!--Parents balance-->
+                    <td class="parents">Balance :
+                        <div class="num" id="parentsBalance"></div><button id="pcheckbutton" onclick="p1.check();">Check</button>
+                    </td>
+                    <!--Good kid balance-->
+                    <td class="good">Balance :
+                        <div class="num" id="goodBalance"></div><button id="goodcheckbutton" onclick="good1.check();">Check</button>
+                    </td>
+                    <!--Rotten kid balance-->
+                    <td class="rotten">Balance :
+                        <div class="num" id="rottenBalance"></div><button id="rottencheckbutton" onclick="rotten1.check();">Check</button>
+                    </td>
+                </tr>
+            </table>
+
+            <!--
         <div id="sketch-holder">
         </div>
 -->
-        
-        <p id="notification">Please go ahead click on the buttons to complete the process!</p>
-        <button id="next" disabled="true" onclick="reset();">Go to next Week</button>
-        <p id="conclusion"></p>
-        
-    </main>
+
+            <p id="notification">Please go ahead click on the buttons to complete the process!</p>
+            <button id="next" disabled="true" onclick="reset();">Go to next Week</button>
+            <p id="conclusion"></p>
+
+        </main>
+    </article>
+
     <footer id="reference">
         <p>(1)The data about median US family income and expenditure in 1970s sources from the papers below:
             <br><b>a.United States Median Household Income: 1950-1990</b> : <a href="https://web.stanford.edu/class/polisci120a/immigration/Median%20Household%20Income.pdf">Link</a>
@@ -186,9 +298,14 @@
             <br>Wiki page gave me a general understanding of the theory in the early stage.
         </p>
     </footer>
-    
-    
-    
+
+    <div id="copyright">
+        2018 Xinyi Hu / Foxieeeeee
+        <br>This project is created for the Intermediate Programming class at NEU
+        <br>It's open Sauce!
+
+        <br><a href="https://github.com/appleseed0910" target="_blank"><img src="images/github.png" width="50" height="50"></a>
+    </div>
 </body>
 
 </html>

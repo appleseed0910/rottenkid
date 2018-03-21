@@ -1,92 +1,162 @@
-@import url('https://fonts.googleapis.com/css?family=Chelsea+Market');
-@import url('https://fonts.googleapis.com/css?family=VT323');
-@import url('https://fonts.googleapis.com/css?family=Kreon');
+@import url('https://fonts.googleapis.com/css?family=Caveat+Brush|Schoolbell|Kreon|Chelsea+Market|Montserrat|IBM+Plex+Sans|Raleway');
 
 
-body{
+body {
     font-size: 16px;
+    margin: 0;
+
 }
 
 
 
 header {
-    padding-top: 10%;
-    padding-right: 20%;
-    padding-left: 20%;
+    padding: 10% auto 0px auto;
     border-style: dashed;
+
+    background-image: url(images/doodles.png);
+    background-repeat: repeat;
+    text-align: center;
+
 
 }
 
 h1 {
-    font-family: 'Chelsea Market', cursive;
-    font-size: 3em;
+    font-family: 'Caveat Brush', cursive;
+    font-size: 5em;
+    font-weight: lighter;
+    margin-top: 10%;
+    margin-bottom: 0px;
 }
 
 h2 {
-    font-family: 'Kreon', serif;
+    font-family: 'Chelsea Market', serif;
     font-size: 2em;
 }
 
-section, main, footer {
+section,
+main,
+footer {
     padding-right: 20%;
     padding-left: 20%;
 }
 
-#navigation{
-    font-family: 'VT323', monospace;
-    font-size: 2em;
-    padding-right: 20%;
-    padding-left: 20%;
-    text-align: left;
+#subheading {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    font-family: 'Chelsea Market', serif;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#navigation {
+    font-family: 'Chelsea Market', monospace;
+    font-size: 1.3em;
+    text-align: center;
     border-style: dashed;
-    border-top:none;
+    border-top: none;
+    border-bottom: none;
+    margin: 0;
+    line-height: 2;
+
+    background-color: #e5e5e5;
+
 }
 
 .nav a:link {
-    color:darkgrey;
+    color: darkgrey;
 }
 
-.nav a:visited{
+.nav a:visited {
     color: dimgray;
 }
 
-.nav a:hover{
+.nav a:hover {
     text-shadow: 1px 1px 1px #000000;
 }
 
-li.nav{
+.nav a:active {
+    text-shadow: none;
+}
+
+li.nav {
     display: inline;
     margin: 6em;
     margin-left: 0;
 }
 
-table, th, td {
-    border:  1px solid black;
-        
+article {
+    border-style: dashed;
+    margin: 0;
+    background-color: #f7f7f7;
 }
 
-table button{
+
+fieldset{
+    border: double green;
+    padding: 1px;
+}
+
+legend {
+    font-family: 'Chelsea Market', serif;
+    font-size: 1.5em;
+    color: green;
+    margin-left: 1.5em;
+}
+
+.odd{
+   background-color: #e0edda; 
+}
+
+.even{
+    background-color: #c9dbb1;
+}
+
+table,th,td {
+    border: none;
+    font-family: 'Chelsea Market', serif;
+}
+
+table button {
     float: right;
 }
 
 table {
-    width:100%;
+    width: 100%;
 }
 
-div.num{
+div.num {
     margin-right: 1em;
-    text-align:right; 
-    float:right;
+    text-align: right;
+    float: right;
 }
 
-.parents{
-    background-color:beige;
+.parents {
+    background-color: beige;
 }
 
-.good{
-    background-color:#68e2c2;
+.good {
+    background-color: #68e2c2;
 }
 
-.rotten{
+.rotten {
     background-color: #e27b63;
+}
+
+footer {
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+    border-style: dashed;
+    border-top: none;
+    margin-bottom: 0;
+    background-color: #e5e5e5;
+
+}
+
+#copyright {
+    background-color: #282828;
+    background-image: url(images/doodles.png);
+    filter: invert(100%);
+    text-align: center;
+    padding: 3.5em;
+    font-family: 'Chelsea Market', serif;
 }
