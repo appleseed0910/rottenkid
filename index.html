@@ -20,17 +20,15 @@
 
     <header>
         <h1>Rotten kid theorem Simulator</h1>
-
-        <!--        <h2>Based on Gary.S.Baker's ecnomical and sociological research <br><em><a href="http://www.journals.uchicago.edu/doi/abs/10.1086/260265">'A Theory of Social Interactions'</a></em></h2>-->
-
     </header>
 
     <!--Navigation Bar-->
     <!--I forgot why I didn't use the <nav> tags...-->
     <div>
         <ul id="navigation">
-            <li class="nav"><a href="#about">About</a></li>
-            <li class="nav"><a href="#simulator">Simulator</a></li>
+            <li class="nav"><a href="#introduction">Introduction</a></li>
+            <li class="nav"><a href="#author">Author</a></li>
+            <li class="nav"><a href="#instructions">Simulator</a></li>
             <li class="nav"><a href="#reference">Reference</a></li>
         </ul>
     </div>
@@ -38,41 +36,59 @@
 
     <article>
 
-        <section id="subheading">
+        <section class="note">
             This project is created based on Gary.S.Baker's ecnomical and sociological research <br><em><a href="http://www.journals.uchicago.edu/doi/abs/10.1086/260265">'A Theory of Social Interactions'</a></em>
         </section>
+        <img src="images/divider.png" id="divider">
 
-        <section id="about">
+        <section id="introduction">
+
+            <h2>Introduction</h2>
+            <p>You may have heard of several famous terms like 'selfish gene', 'marginal cost', or 'sunk cost'. They've summarized some empirical facts in a macro level but way too far away from our daily life.</p>
+            <p>Rotten kid theorem is different. It starts the demonstration from a family scope. But also, you could have a vague glance of those renown theories through it.</p>
+            <p>The research analyzed the economic effects of family members' sociological interactions through some economical frameworks. The author pointed out an important concept of 'social income' which is a combination of one's earnings and something has monetary value (such as reputation).</p>
+            <p>Many assumptions and limitations were used in the original research model. However, the conclusion stands on the opposite, the instability.</p>
+            <p>In common sense, we think the 'good' would behave as good. The 'bad' would behave as bad. But it's not always the case.</p>
+            <p>Sometimes a rotten kid pretends to be friendly for multiple possible reasons, such as he cares about the life quality of entire family which is related to himself. Sometimes, even though parents (head role of a family) give punishments to a rotten kid because he has hurt his siblings. Oh, that might not stop him from keeping doing this as well. "An envious or malicious person presumably would feel better off if some other persons become worse off in certain respects. He could 'harm' himself in order to harm others."(see original research, Becker, 1974)</p>
+            <p>You may want to ask, what's the point of this research and the project I've done. It just shows the instability. No matter what parameters you think you could control, you still cannot infer what would happen in the next.</p>
+            <p>Have you ever played a kaleidoscope? This simulator project is something like that. Each wispy of light and shadow is relevant to others and they gather, contribute to a unique moment.Like the human society, like numerous similar but different families.</p>
+        </section>
+
+        <section class="note">
+            "No Man is an Island." John Donne
+            <br>"Man is a social animal." Seneca
+        </section>
+        <img src="images/divider.png" id="divider">
+
+        <section id="author">
+            <h2>About Author</h2>
+            <a href="https://en.wikipedia.org/wiki/Gary_Becker" target="_blank"><img src="images/garybecker-bnw.png" id="portrait" onMouseover="src='images/garybecker-col.png'" onMouseout="src='images/garybecker-bnw.png'"></a>
+            <p>Gary Stanley Becker (December 2, 1930 – May 3, 2014)was an American economist and empiricist.</p>
+            <p>He was a professor of economics and sociology at the University of Chicago. Described as “the most important social scientist in the past 50 years” by The New York Times, Becker was awarded the Nobel Memorial Prize in Economic Sciences in 1992 and received the United States Presidential Medal of Freedom in 2007. A 2011 survey of economics professors named Becker their favorite living economist over the age of 60, followed by Ken Arrow and Robert Solow.</p>
+            <p>Except for the contents above, which I directly quote from <a href="https://en.wikipedia.org/wiki/Gary_Becker">the wikipedia page</a>. I want to emphasize that most of his research is really interesting, meaningful and profound to everyone.
+                <p>Topics that he had discussed contain multiple sensitive social issues such as racial discrimination, crime, family organization, and drug addiction. Above all, human behavior is also another topic he was interested a lot.</p>
+                <p>The difference of his research rather than others, I think it's that he had been using a professionally economic thinking to observe and explain many phenomena. </p>
+                <p>Chicago, at such a city like an eye of the storm of American sociology academia, Dr. Becker stood there at the intersection of economics and sociology as a wise and left us much valuable research.</p>
+        </section>
+
+        <section class="note">"I was not sympathetic to the assumption that criminals had radically different motivations from everyone else." Gary.S.Becker</section>
+        <img src="images/divider.png" id="divider">
 
 
-            <p><strong>Rules</strong>
-                <br></p>
-            <p>This reaserch focuses on how family ecnomic affects family members' interaction.
-                <br>Dr.Baker used a lot of assumptions and limitations on the framework in the original paper. Such as:
-                <br>The head of family who decides how to distribute the money is an altruist, which means a redistribution of income among members does not affect the consumption or welfare of any member.
-                <br>And so on...
-            </p>
-            <p>
-                The conclusion is a lit tricky... it suggests that the result of distributing the estate among offsprings is something hard to know beforehand.
-                <br>If an selfish egoist doesn't commit harm to his/her siblings, that's because he/she takes the related consequence as a kind of 'social income'.
-                <br>The more he/she hurts his/her siblings ecnomically, the more the altruistic parent needs to make up the hurted child, which declines the life quality of the whole family(and the egoist's reputation)!</p>
-            <p>
-                <br>My personal understanding of this model is a demonstration of instability.
-                <br>Until now, I've already finished most functions of the model roughly. I changed the original complicated mathmatical formulas into simple probalblity.
-            </p>
-
-            <p><strong><div>Instructions!</div></strong>
-                <strong>Please click buttons in the order from left up to down and then to the right.</strong>
-                <br>After Pay, it's Check. Then you might see something happen, if not, please click and go to see the next week.
-                <br>Becasue everything happens based on probalblity, I cannot ensure anything!
-            </p>
-
+        <section id="instructions">
+            <h2>Instructions</h2>
+            <p>Now, it's your turn. Your role is the head of a family who is in charge of paying bills and distribute allowance to kids.</p>
+            <p>Notice that you cannot decline the amount of those bills. (Real life!) </p>
+            <p>But there are three branches you could make changes: <strong>entertainment expenditure</strong> and <strong>allowance</strong> for both <strong>good</strong> and <strong>bad</strong> kid.</p>
+            <p>➀The first thing is to <strong>PAY</strong> everything. <strong>(From top to bottom)</strong><br>➁The second thing is to <strong>CHECK</strong> what happens! <strong>(From left to right)</strong></p>
+            <p>Above is the suggestion from the developer. You could absolutely do something creative. However, there might not be a surprise is waiting for you. :(<br>The basic algorithm behind this project is built on probability which you may be familiar with it, "Math.random()".</p>
+            <p>Okay, it's time to try it!!!</p>
         </section>
 
         <main id="simulator">
 
             <!--New Table -->
-            <fieldset> 
+            <fieldset>
                 <legend>Simulator</legend>
 
                 <table>
@@ -83,7 +99,7 @@
                         <th>Good Kid</th>
                         <th>Rotten Kid</th>
                     </tr>
-                    
+
                     <!--Weekly income Row -->
                     <tr class="even">
                         <td style="width:50px">Weekly Income/Allowance:</td>
@@ -91,7 +107,7 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    
+
                     <!--Behavior Row (10rows for parents' behavior)-->
                     <tr class="odd">
                         <td rowspan="10">Behavior</td>
@@ -153,10 +169,6 @@
                         <td></td>
                         <td></td>
                     </tr>
-
-
-
-
                 </table>
             </fieldset>
 

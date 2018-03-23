@@ -30,8 +30,11 @@ h1 {
 
 h2 {
     font-family: 'Chelsea Market', serif;
-    font-size: 2em;
+    font-size: 1.25em;
+    font-weight: thin;
 }
+
+
 
 section,
 main,
@@ -40,9 +43,8 @@ footer {
     padding-left: 20%;
 }
 
-#subheading {
-    padding-bottom: 1em;
-    padding-top: 1em;
+.note {
+    padding: 1em 20%;
     font-family: 'Chelsea Market', serif;
     font-size: 1.2em;
     text-align: center;
@@ -59,6 +61,7 @@ footer {
     line-height: 2;
 
     background-color: #e5e5e5;
+    padding: auto;
 
 }
 
@@ -67,7 +70,7 @@ footer {
 }
 
 .nav a:visited {
-    color: dimgray;
+    color: darkgrey;
 }
 
 .nav a:hover {
@@ -90,6 +93,24 @@ article {
     background-color: #f7f7f7;
 }
 
+#introduction, #author, #instructions{
+    font-family: 'IBM Plex Sans';
+    font-size: 1.1em;
+}
+
+
+
+#divider{
+    display: block;
+    margin: 0px auto;
+    width: 30em;
+    height: 30px;
+}
+
+#portrait{
+    float: right;
+    padding-right: 10px;
+}
 
 fieldset{
     border: double green;
@@ -100,7 +121,7 @@ legend {
     font-family: 'Chelsea Market', serif;
     font-size: 1.5em;
     color: green;
-    margin-left: 1.5em;
+    margin-left: 1.2em;
 }
 
 .odd{
@@ -158,5 +179,6 @@ footer {
     filter: invert(100%);
     text-align: center;
     padding: 3.5em;
+    padding-bottom: 2em;
     font-family: 'Chelsea Market', serif;
 }
