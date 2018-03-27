@@ -6,12 +6,12 @@
 <head>
 
     <link rel="stylesheet" type="text/css" href="style.css">
-    <!--    <script src="libraries/p5.js"></script>-->
+    <!--
+    <script src="libraries/p5.js"></script>
     <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
     <script src="libraries/p5.sound.js"></script>
-    <script src="main.js"></script>
-    <script src="parents.js"></script>
-    <script src="kids.js"></script>
+-->
+    <script src="mainV2.js"></script>
 
 
 </head>
@@ -26,9 +26,10 @@
     <!--I forgot why I didn't use the <nav> tags...-->
     <div>
         <ul id="navigation">
+            <li class="nav"><a href="#instructions">Simulator</a></li>
             <li class="nav"><a href="#introduction">Introduction</a></li>
             <li class="nav"><a href="#author">Author</a></li>
-            <li class="nav"><a href="#instructions">Simulator</a></li>
+
             <li class="nav"><a href="#reference">Reference</a></li>
         </ul>
     </div>
@@ -41,6 +42,189 @@
         </section>
         <img src="images/divider.png" id="divider">
 
+        <section id="instructions">
+            <h2>Instructions</h2>
+            <p>Pay for the bills.<strong>(inevitable)</strong></p>
+            <p>Adjust the amount of <strong>Entertainment</strong>, <strong>Allowance for the good kid</strong>, and <strong>Allowance for the rotten kid.</strong></p>
+            <p>Distribute the money that you have.</p>
+            <p>See what would happen after that...</p>
+            
+        </section>
+
+        <main id="simulator">
+
+            <!--New Table -->
+            <fieldset>
+                <legend>Simulator</legend>
+
+                <table>
+                    <!--Identity Row -->
+                    <tr class="tablepart1">
+                        <th></th>
+                        <th colspan="2">Parents</th>
+                        <th colspan="2">Good Kid</th>
+                        <th colspan="2">Rotten Kid</th>
+                    </tr>
+
+                    <!--Weekly income Row -->
+                    <tr class="tablepart2">
+                        <td style="width:50px">Weekly Income/Allowance:</td>
+                        <td colspan="2">
+                            <div class="num" id="parentWeekly">$200</div>
+                        </td>
+
+                        <!--Good Kid Allowance -->
+                        <td colspan="2"><button onclick="goodAllowancePlus()" id="goodAllowancePlus">+</button>
+                            <div class="num" id="goodAllowance">$5</div><button onclick="goodAllowanceMinus()" id="goodAllowanceMinus">-</button></td>
+                        <!--Rotten Kid Allowance -->
+                        <td colspan="2"><button onclick="rottenAllowancePlus()" id="rottenAllowancePlus">+</button>
+                            <div class="num" id="rottenAllowance">$5</div><button onclick="rottenAllowanceMinus()" id="rottenAllowanceMinus">-</button></td>
+                    </tr>
+
+                    <!--Behavior Row (10rows for parents' behavior)-->
+                    <tr class="tablepart1">
+                        <td rowspan="6">Expenses</td>
+                        <td>Housing</td>
+                        <td>
+                            <div class="num">$46</div>
+                        </td>
+                        <td>Snack</td>
+                        <td>
+                            <div class="num">$2</div>
+                        </td>
+                        <td>Snack</td>
+                        <td>
+                            <div class="num">$2</div>
+                        </td>
+                    </tr>
+
+                    <tr class="tablepart1">
+                        <td>Food</td>
+                        <td>
+                            <div class="num">$60</div>
+                        </td>
+                        <td>Toy</td>
+                        <td>
+                            <div class="num">$3</div>
+                        </td>
+                        <td>Toy</td>
+                        <td>
+                            <div class="num">$3</div>
+                        </td>
+                    </tr>
+
+                    <tr class="tablepart1">
+                        <td>Transportation</td>
+                        <td>
+                            <div class="num">$48</div>
+                        </td>
+                        <td>Comic</td>
+                        <td>
+                            <div class="num">$5</div>
+                        </td>
+                        <td>Comic</td>
+                        <td>
+                            <div class="num">$5</div>
+                        </td>
+                    </tr>
+
+                    <tr class="tablepart1">
+                        <td>Healthcare</td>
+                        <td>
+                            <div class="num">$10</div>
+                        </td>
+                        <td>Puzzle game</td>
+                        <td>
+                            <div class="num">$10</div>
+                        </td>
+                        <td>Bike</td>
+                        <td>
+                            <div class="num">$10</div>
+                        </td>
+                    </tr>
+
+                    <tr class="tablepart1">
+                        <td>Clothing</td>
+                        <td>
+                            <div class="num">$16</div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="tablepart1">
+                        <td>Entertainment</td>
+                        <td><button onclick="entertainmentPlus()" id="entertainmentPlus">+</button>
+                            <div class="num" id="entertainment">$10</div><button onclick="entertainmentMinus()" id="entertainmentMinus">-</button></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="tablepart2">
+                        <td class="even" rowspan="2">Behavior</td>
+                        <td rowspan="2" colspan="2"><button onclick="payThisweek()" id="payThisweek">Pay</button></td>
+                        <td>Saving</td>
+                        <td>
+                        <div class="num" id="goodSaving"></div>
+                        </td>
+                        <td>Saving</td>
+                        <td>
+                            <div class="num" id="rottenSaving"></div>
+                        </td>
+                    </tr>
+
+                    <tr class="tablepart2">
+                        <td></td>
+                        <td></td>
+                        <td>Snatch</td>
+                        <td>
+                            <div class="num" id="rottenSnatch"></div>
+                        </td>
+                    </tr>
+
+                    <tr class="tablepart1">
+                        <td>Balance</td>
+                        <td colspan="2">
+                            <div class="num" id="parentBalance"></div>
+                        </td>
+                        <td colspan="2">
+                            <div class="num" id="goodBalance"></div>
+                        </td>
+                        <td colspan="2">
+                            <div class="num" id="rottenBalance"></div>
+                        </td>
+                    </tr>
+
+
+                </table>
+
+                <!--Area for the behavior observation-->
+                <div id="observation">
+                    <img src="images/parentA.png" id="parentImage">
+                    <div id="parentCloud"></div>
+                    
+                    <img src="images/goodA.png" id="goodImage">
+                    <div id="goodCloud"></div>
+                    
+                    <img src="images/rottenA.png" id="rottenImage">
+                    <div id="rottenCloud"></div>
+                    
+                    <div id="reset"><button disabled="true" id="resetButton" onclick="reset()">Go to next week!</button></div>
+
+                </div>
+            </fieldset>
+            
+            <div id="question1"></div>
+            <div id="question2"></div>
+
+        </main>
+
+        <img src="images/divider.png" id="divider">
+
         <section id="introduction">
 
             <h2>Introduction</h2>
@@ -48,8 +232,8 @@
             <p>Rotten kid theorem is different. It starts the demonstration from a family scope. But also, you could have a vague glance of those renown theories through it.</p>
             <p>The research analyzed the economic effects of family members' sociological interactions through some economical frameworks. The author pointed out an important concept of 'social income' which is a combination of one's earnings and something has monetary value (such as reputation).</p>
             <p>Many assumptions and limitations were used in the original research model. However, the conclusion stands on the opposite, the instability.</p>
-            <p>In common sense, we think the 'good' would behave as good. The 'bad' would behave as bad. But it's not always the case.</p>
-            <p>Sometimes a rotten kid pretends to be friendly for multiple possible reasons, such as he cares about the life quality of entire family which is related to himself. Sometimes, even though parents (head role of a family) give punishments to a rotten kid because he has hurt his siblings. Oh, that might not stop him from keeping doing this as well. "An envious or malicious person presumably would feel better off if some other persons become worse off in certain respects. He could 'harm' himself in order to harm others."(see original research, Becker, 1974)</p>
+            <div id="answer"><p>In common sense, we think the 'good' would behave as good. The 'bad' would behave as bad. But it's not always the case.</p>
+            <p>Sometimes a rotten kid pretends to be friendly for multiple possible reasons, such as he cares about the life quality of entire family which is related to himself. Sometimes, even though parents (head role of a family) give punishments to a rotten kid because he has hurt his siblings. Oh, that might not stop him from keeping doing this as well. "An envious or malicious person presumably would feel better off if some other persons become worse off in certain respects. He could 'harm' himself in order to harm others."(see original research, Becker, 1974)</p></div>
             <p>You may want to ask, what's the point of this research and the project I've done. It just shows the instability. No matter what parameters you think you could control, you still cannot infer what would happen in the next.</p>
             <p>Have you ever played a kaleidoscope? This simulator project is something like that. Each wispy of light and shadow is relevant to others and they gather, contribute to a unique moment.Like the human society, like numerous similar but different families.</p>
         </section>
@@ -72,231 +256,12 @@
         </section>
 
         <section class="note">"I was not sympathetic to the assumption that criminals had radically different motivations from everyone else." Gary.S.Becker</section>
-        <img src="images/divider.png" id="divider">
 
 
-        <section id="instructions">
-            <h2>Instructions</h2>
-            <p>Now, it's your turn. Your role is the head of a family who is in charge of paying bills and distribute allowance to kids.</p>
-            <p>Notice that you cannot decline the amount of those bills. (Real life!) </p>
-            <p>But there are three branches you could make changes: <strong>entertainment expenditure</strong> and <strong>allowance</strong> for both <strong>good</strong> and <strong>bad</strong> kid.</p>
-            <p>➀The first thing is to <strong>PAY</strong> everything. <strong>(From top to bottom)</strong><br>➁The second thing is to <strong>CHECK</strong> what happens! <strong>(From left to right)</strong></p>
-            <p>Above is the suggestion from the developer. You could absolutely do something creative. However, there might not be a surprise is waiting for you. :(<br>The basic algorithm behind this project is built on probability which you may be familiar with it, "Math.random()".</p>
-            <p>Okay, it's time to try it!!!</p>
-        </section>
-
-        <main id="simulator">
-
-            <!--New Table -->
-            <fieldset>
-                <legend>Simulator</legend>
-
-                <table>
-                    <!--Identity Row -->
-                    <tr class="odd">
-                        <th></th>
-                        <th>Parents</th>
-                        <th>Good Kid</th>
-                        <th>Rotten Kid</th>
-                    </tr>
-
-                    <!--Weekly income Row -->
-                    <tr class="even">
-                        <td style="width:50px">Weekly Income/Allowance:</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <!--Behavior Row (10rows for parents' behavior)-->
-                    <tr class="odd">
-                        <td rowspan="10">Behavior</td>
-                        <td>Housing</td>
-                        <td>Snack</td>
-                        <td>Snack</td>
-                    </tr>
-
-                    <tr class="even">
-                        <td>Food</td>
-                        <td>Toy</td>
-                        <td>Toy</td>
-                    </tr>
-
-                    <tr class="odd">
-                        <td>Transportation</td>
-                        <td>Comic</td>
-                        <td>Snatch</td>
-                    </tr>
-
-                    <tr class="even">
-                        <td>Healthcare</td>
-                        <td></td>
-                        <td>Bike</td>
-                    </tr>
-
-                    <tr class="odd">
-                        <td>Clothing</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr class="even">
-                        <td>Other</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr class="odd">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr class="even">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr class="odd">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr class="even">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-            </fieldset>
-
-            <hr>
-
-            <!--Original Table-->
-            <table>
-                <tr>
-                    <th class="parents">Parents</th>
-                    <th class="good">Good kid</th>
-                    <th class="rotten">Rotten Kid</th>
-                </tr>
-                <tr>
-                    <!--Parents income-->
-                    <td class="parents">Weekly Income:
-                        <div class="num" id="weeklyIncome">$200<sup> (1)</sup></div>
-                    </td>
-                    <!--Good kid income-->
-                    <td class="good">Weekly allowance:
-                        <div class="num" id="weeklyGoodA"> </div>
-                    </td>
-                    <!--Rotten kid income-->
-                    <td class="rotten">Weekly allowance:
-                        <div class="num" id="weeklyRottenA"> </div>
-                    </td>
-                </tr>
-                <tr>
-                    <!--Parents expenditure-->
-                    <td class="parents">Behaviour:<br>
-                        <ul>
-                            <li>Housing
-                                <div class="num">$46</div><button id="payHousingbutton" onclick="p1.payHousing();">Pay</button></li>
-
-                            <li>Food
-                                <div class="num">$60</div><button id="payFoodbutton" onclick="p1.payFood();">Pay</button></li>
-
-                            <li>Transportation
-                                <div class="num">$48</div><button id="payTransportationbutton" onclick="p1.payTransportation();">Pay</button></li>
-
-                            <li>Healthcare
-                                <div class="num">$10</div><button id="payHealthcarebutton" onclick="p1.payHealthcare();">Pay</button></li>
-
-                            <li>Clothing
-                                <div class="num">$16</div><button id="payClothingbutton" onclick="p1.payClothing();">Pay</button></li>
-
-                            <li>Other
-                                <ul>
-                                    <li>Entertainment
-                                        <button onclick="p1.plusEntertainment();">+</button>
-                                        <div class="num" id="entertainment">$10</div>
-                                        <button onclick="p1.minusEntertainment();">-</button></li>
-                                    <li>Allowance
-                                        <ul>
-                                            <li>For good kid:<button onclick="p1.plusGood();">+</button>
-                                                <div class="num" id="costForgood">$5</div><button onclick="p1.minusGood();">-</button>
-                                            </li>
-                                            <li>For bad kid:<button onclick="p1.plusRotten();">+</button>
-                                                <div class="num" id="costForrotten">$5</div><button onclick="p1.minusRotten();">-</button></li>
-                                        </ul>
-                                    </li>
-                                </ul><button id="payOtherbutton" onclick="p1.payOther();">Pay</button></li>
-                        </ul>
-                    </td>
-
-                    <!--Good Kid expenditure-->
-                    <td class="good">Behaviour:<br>
-                        <ul>
-                            <li>Snack
-                                <div class="num">$2</div>
-                            </li>
-                            <li>Toy
-                                <div class="num">$3</div>
-                            </li>
-                            <li>Comic
-                                <div class="num">$5</div>
-                            </li>
-                        </ul>
-                        <div id="noteGood"></div>
-                        <div id="noteGood2"></div>
-                    </td>
-
-                    <!--Rotten Kid expenditure-->
-                    <td class="rotten">Behaviour:<br>
-                        <ul>
-                            <li>Snack
-                                <div class="num">$2</div>
-                            </li>
-                            <li>Toy
-                                <div class="num">$3</div>
-                            </li>
-                            <br>
-                            <li>Snatch<sup> (2)</sup>
-                                <div class="num"></div>
-                            </li>
-                            <li>Bike
-                                <div class="num">$10</div>
-                            </li>
-                        </ul>
-                        <div id="noteRotten"></div>
-                        <div id="noteRotten2"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <!--Parents balance-->
-                    <td class="parents">Balance :
-                        <div class="num" id="parentsBalance"></div><button id="pcheckbutton" onclick="p1.check();">Check</button>
-                    </td>
-                    <!--Good kid balance-->
-                    <td class="good">Balance :
-                        <div class="num" id="goodBalance"></div><button id="goodcheckbutton" onclick="good1.check();">Check</button>
-                    </td>
-                    <!--Rotten kid balance-->
-                    <td class="rotten">Balance :
-                        <div class="num" id="rottenBalance"></div><button id="rottencheckbutton" onclick="rotten1.check();">Check</button>
-                    </td>
-                </tr>
-            </table>
-
-            <!--
+        <!--
         <div id="sketch-holder">
         </div>
 -->
-
-            <p id="notification">Please go ahead click on the buttons to complete the process!</p>
-            <button id="next" disabled="true" onclick="reset();">Go to next Week</button>
-            <p id="conclusion"></p>
-
-        </main>
     </article>
 
     <footer id="reference">
@@ -310,6 +275,7 @@
             <br>Wiki page gave me a general understanding of the theory in the early stage.
         </p>
     </footer>
+    
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <script src="buttonexperiment.js"></script>
 

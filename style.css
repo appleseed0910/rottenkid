@@ -98,7 +98,14 @@ article {
     font-size: 1.1em;
 }
 
+#answer{
+}
 
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 
 #divider{
     display: block;
@@ -115,6 +122,7 @@ article {
 fieldset{
     border: double green;
     padding: 1px;
+    margin-bottom: 2em;
 }
 
 legend {
@@ -124,11 +132,15 @@ legend {
     margin-left: 1.2em;
 }
 
-.odd{
-   background-color: #e0edda; 
+button{
+    font-family: 'Chelsea Market', serif;
 }
 
-.even{
+.tablepart1{
+    background-color: #e0edda;
+}
+
+.tablepart2{
     background-color: #c9dbb1;
 }
 
@@ -145,23 +157,68 @@ table {
     width: 100%;
 }
 
+td{
+    min-width: 90px;
+}
+
 div.num {
-    margin-right: 1em;
+    margin: auto .5em;
     text-align: right;
+    color: #3c1fa5;
     float: right;
 }
 
-.parents {
-    background-color: beige;
+td.flexible{
+    display: inline-block;
+    float: right;
 }
 
-.good {
-    background-color: #68e2c2;
+#parentImage{
+    height: 3em;
 }
 
-.rotten {
-    background-color: #e27b63;
+#goodImage{
+    position: sticky;
+    left:45%;
+    height: 3em;
 }
+
+#rottenImage{
+    position: sticky;
+    left:65%;
+    height: 3em;
+}
+
+#observation{
+    font-family: 'Chelsea Market', serif;;
+    border:dotted green;
+    padding: 1em;
+    background-image: url(images/cloudy-day.png);
+}
+
+#reset{
+    margin: 1em 40% 0 40%;
+}
+
+#parentCloud{
+    display: inline;
+    width: 50px;
+}
+
+#goodCloud{
+    display: inline;
+    position: sticky;
+    left:48%;
+    width:3em;
+}
+
+#rottenCloud{
+    display: inline;
+    position: sticky;
+    left:68%;
+}
+
+
 
 footer {
     padding-top: 2.5em;
@@ -171,6 +228,11 @@ footer {
     margin-bottom: 0;
     background-color: #e5e5e5;
 
+}
+
+#reference{
+    font-family: 'IBM Plex Sans';
+    font-size: 1.1em;
 }
 
 #copyright {
