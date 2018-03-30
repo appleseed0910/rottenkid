@@ -1,5 +1,6 @@
 'use strict'
 
+//Initialize all the variables
 var parentWeeklyIncome = 200;
 var goodAllowance = 5;
 var rottenAllowance = 5;
@@ -14,20 +15,13 @@ var rottenBalance = 0;
 
 var rottenSnatch = 0;
 
-var bills = 180;
+var bills = 180; // I add all the expense together since there's no more mulitple pay buttons
 
+// Initialize boolean triggers
 var buySnackG = false;
 var buyToyG = false;
 var buyComicG = false;
 var buyPuzzlegameG = false;
-
-var question1check = false;
-var question2check = false;
-
-var payAudio = new Audio ('audio/cash_register.mp3');
-var commonAudio = new Audio ('audio/coin_insert.mp3');
-var snatchAudio = new Audio ('audio/rottenkid.wav');
-
 
 var buySnackR = false;
 var buyToyR = false;
@@ -36,8 +30,16 @@ var buyBikeR = false;
 var rottenSnatchCheck = false;
 var rottenSnatch = 0;
 
+// set up two triggers for the poping up questions to make sure the questions only show once
+var question1check = false;
+var question2check = false;
 
+// Load the audios
+var payAudio = new Audio('audio/cash_register.mp3');
+var commonAudio = new Audio('audio/coin_insert.mp3');
+var snatchAudio = new Audio('audio/rottenkid.wav');
 
+// minus amount of the good kid's allowance
 function goodAllowanceMinus() {
     goodAllowance -= 1;
     document.getElementById("goodAllowance").innerHTML = "$" + goodAllowance;
@@ -45,6 +47,7 @@ function goodAllowanceMinus() {
     checkNegative(goodAllowance, "goodAllowance");
 }
 
+// plus amount of the good kid's allowance
 function goodAllowancePlus() {
     goodAllowance += 1;
     document.getElementById("goodAllowance").innerHTML = "$" + goodAllowance;
@@ -52,6 +55,7 @@ function goodAllowancePlus() {
     checkNegative(goodAllowance, "goodAllowance");
 }
 
+// plus amount of the rotten kid's allowance
 function rottenAllowancePlus() {
     rottenAllowance += 1;
     document.getElementById("rottenAllowance").innerHTML = "$" + rottenAllowance;
@@ -59,6 +63,7 @@ function rottenAllowancePlus() {
     checkNegative(rottenAllowance, "rottenAllowance");
 }
 
+// minus amount of the rotten kid's allowance
 function rottenAllowanceMinus() {
     rottenAllowance -= 1;
     document.getElementById("rottenAllowance").innerHTML = "$" + rottenAllowance;
@@ -66,6 +71,7 @@ function rottenAllowanceMinus() {
     checkNegative(rottenAllowance, "rottenAllowance");
 }
 
+// plus amount of the entertainment expense
 function entertainmentPlus() {
     entertainment += 1;
     document.getElementById("entertainment").innerHTML = "$" + entertainment;
@@ -73,6 +79,7 @@ function entertainmentPlus() {
     checkNegative(entertainment, "entertainment");
 }
 
+// minus amount of the entertainment expense
 function entertainmentMinus() {
     entertainment -= 1;
     document.getElementById("entertainment").innerHTML = "$" + entertainment;
@@ -80,13 +87,14 @@ function entertainmentMinus() {
     checkNegative(entertainment, "entertainment");
 }
 
-
+// update the value of parent's balance each time after user adjust any value of variable(allowance for good, allowance for rotten, entertainment)
 function updateParentBalance() {
     parentBalance = parentWeeklyIncome - bills - goodAllowance - rottenAllowance - entertainment;
     document.getElementById("parentBalance").innerHTML = "$" + parentBalance;
     checkNegative(parentBalance, "parentBalance");
 }
 
+// check whether the value is negative, if yes, change color into red
 function checkNegative(value, target) {
     if (value < 0) {
         document.getElementById(target).style.color = "#af301a";
@@ -95,16 +103,20 @@ function checkNegative(value, target) {
     }
 }
 
+// pay for this week
 function payThisweek() {
 
+    // only could pay when the balance is positive
     if (parentBalance >= 0) {
 
         document.getElementById("parentBalance").innerHTML = "$" + parentBalance;
 
+        // show the text notification
         document.getElementById("parentCloud").style.color = "#3c1fa5";
         document.getElementById("parentCloud").innerHTML = "You've paid for this week,<br>let's check what happened among kids."
         document.getElementById("payThisweek").disabled = true;
 
+        // change the icon
         document.getElementById("parentImage").src = "images/parentB.png"
 
         document.getElementById("goodAllowanceMinus").disabled = true;
@@ -115,18 +127,17 @@ function payThisweek() {
 
         document.getElementById("entertainmentPlus").disabled = true;
         document.getElementById("entertainmentMinus").disabled = true;
+
         document.getElementById("resetButton").disabled = false;
-
-
+        // activate kids' behavior
         rottenKid();
         goodKid();
-        
-        if(!rottenSnatchCheck){
+        // play the sound
+        if (!rottenSnatchCheck) {
             payAudio.play();
         } else {
             snatchAudio.play();
         }
-        
 
     } else {
 
@@ -135,32 +146,35 @@ function payThisweek() {
 
     }
 
+    // show two questions
     if (rottenSnatchCheck && !question1check) {
         var question1 = document.createElement("p");
         question1.innerHTML = "<a href='#answer' onclick='highlight()'>Why does the rotten kid snatch money from his sibling?</a>";
         document.getElementById("question1").appendChild(question1);
-        
+
         question1check = true;
-        
+
     } else if (!rottenSnatchCheck && !question2check) {
         var question2 = document.createElement("p");
         question2.innerHTML = "<a href='#answer' onclick='highlight()'>Why doesn't the rotten kid snatch money from his sibling?</a>";
         document.getElementById("question2").appendChild(question2);
-        
+
         question2check = true;
     }
 }
 
-function highlight(){
-    document.getElementById("answer").style.color='#1d9612';
+// highlight the answer part when use click on questions (change color and put animation)
+function highlight() {
+    document.getElementById("answer").style.color = '#1d9612';
     document.getElementById("answer").style.fontWeight = "bold";
     document.getElementById("answer").style.border = "dotted green 1px";
     document.getElementById("answer").style.animation = "blinker 1s linear 3";
-    
 }
 
+// control good kid's behavior
 function goodKid() {
 
+    // for the first week's probability calculation 
     if (goodAllowance > 2) {
         if (goodAllowance > 3) {
             if (goodAllowance > 5) {
@@ -189,7 +203,7 @@ function goodKid() {
             }
         }
     }
-
+    // for the following turn's calculation
     if (goodBalance > 2) {
         if (goodBalance > 3) {
             if (goodBalance > 5) {
@@ -218,21 +232,19 @@ function goodKid() {
             }
         }
     }
-
+    // passing data
     goodSaving = goodAllowance;
     goodBalance = goodBalance + goodSaving;
 
     document.getElementById("goodSaving").innerHTML = "$" + goodSaving;
     document.getElementById("goodBalance").innerHTML = "$" + goodBalance;
-
-
-
 }
 
+// control rotten kid's behavior
 function rottenKid() {
-
+    // set up a local variable to store the value of how much money being snatched
     var snatch;
-
+    // for the first week's calculation
     if (goodAllowance > 3) {
         if (goodAllowance > 5) {
             if (goodAllowance > 7) {
@@ -268,7 +280,7 @@ function rottenKid() {
             }
         }
     }
-
+    // if the rotten kid gets punished! higher the probability of snatch
     if (rottenAllowance <= 0 && goodAllowance > 0) {
         if (Math.random() > 0.2) {
             snatch = Math.round((goodAllowance * Math.random()));
@@ -278,7 +290,7 @@ function rottenKid() {
         }
 
     }
-
+    // control rotten kid's purchasing behavior
     if (rottenAllowance > 2) {
         if (rottenAllowance > 3) {
             if (rottenAllowance > 5) {
@@ -307,7 +319,7 @@ function rottenKid() {
             }
         }
     }
-
+    // for the following week's calculation
     if (goodBalance > 10) {
         if (Math.random() > 0.2) {
             snatch = Math.round((goodBalance * Math.random()));
@@ -316,7 +328,7 @@ function rottenKid() {
             rottenSnatchCheck = true;
         }
     }
-
+    // passing data
     rottenSaving = rottenAllowance;
     rottenSnatch = snatch;
     rottenBalance = rottenBalance + rottenAllowance;
@@ -327,6 +339,7 @@ function rottenKid() {
     document.getElementById("rottenSnatch").style.color = "#af301a";
     document.getElementById("rottenSnatch").innerHTML = "$" + rottenSnatch;
 
+    // replace icons to remind user what happened in this turn
     if (rottenSnatchCheck) {
         document.getElementById("rottenImage").src = "images/rottenB.png";
         document.getElementById("goodImage").src = "images/goodB.png";
@@ -334,6 +347,7 @@ function rottenKid() {
         document.getElementById("rottenSnatch").innerHTML = "$" + 0;
     }
 
+    // draw icons to remind user what happened in this turn.
     if (buySnackG) {
         var SnackG = document.createElement("img");
         SnackG.src = "images/icon/snack.png";
@@ -378,8 +392,10 @@ function rottenKid() {
 
 }
 
+// 'go to next week' button, 
 function reset() {
-
+    
+    // reset triggers, buttons and inherit left money from the last turn
     document.getElementById("payThisweek").disabled = false;
 
     document.getElementById("parentImage").src = "images/parentA.png";
@@ -397,6 +413,7 @@ function reset() {
     document.getElementById("rottenImage").src = "images/rottenA.png";
     document.getElementById("goodImage").src = "images/goodA.png";
 
+    // passing data from last turn
     parentWeeklyIncome += parentBalance;
 
     rottenSnatch = 0;
@@ -404,10 +421,6 @@ function reset() {
 
     document.getElementById("parentWeekly").innerHTML = "$" + parentWeeklyIncome;
 
-
     document.getElementById("goodCloud").innerHTML = '';
     document.getElementById("rottenCloud").innerHTML = '';
-
-
-
 }

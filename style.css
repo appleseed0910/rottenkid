@@ -28,6 +28,8 @@ h1 {
     margin-bottom: 0px;
 }
 
+
+
 h2 {
     font-family: 'Chelsea Market', serif;
     font-size: 1.25em;
@@ -93,7 +95,7 @@ article {
     background-color: #f7f7f7;
 }
 
-#introduction, #author, #instructions{
+#introduction, #author, #instructions, #IBM{
     font-family: 'IBM Plex Sans';
     font-size: 1.1em;
 }
@@ -263,4 +265,12 @@ footer {
 
 #myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
+}
+
+#brush{
+    font-family: 'Caveat Brush';
+}
+
+#market{
+    font-family: 'Chelsea Market';
 }
